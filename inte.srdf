@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<robot name="wheelchair_robot">
+
+  <virtual_joint name="world_joint" type="fixed" parent_frame="world" child_link="base_link"/>
+
+  <group name="wheels">
+    <joint name="joint_LF01"/>
+    <joint name="joint_LB01"/>
+    <joint name="joint_RF01"/>
+    <joint name="joint_RB01"/>
+  </group>
+
+	<group name="manipulator">
+	  <joint name="joint_1"/>
+	  <joint name="joint_2"/>
+	  <joint name="joint_3"/>
+	  <joint name="joint_4"/>
+	  <joint name="joint_5"/>
+	  <joint name="joint_6"/>
+	  <joint name="joint_7"/>
+	</group>
+
+  <group name="gripper">
+    <joint name="finger_joint"/>
+    <joint name="left_inner_knuckle_joint"/>
+    <joint name="right_outer_knuckle_joint"/>
+    <joint name="right_inner_knuckle_joint"/>
+    <joint name="left_inner_finger_joint"/>
+    <joint name="right_inner_finger_joint"/>
+  </group>
+
+  <end_effector
+    name="robotiq_gripper"
+    parent_link="tool_frame"
+    group="gripper" />
+
+  <end_effector
+  name="eef" 
+  parent_link="tool_frame"
+  group="manipulator"/>
+
+
+  <disable_collisions link1="bracelet_link" link2="robotiq_arg2f_base_link" reason="Default"/>
+  <disable_collisions link1="left_inner_finger" link2="left_inner_knuckle" reason="Default"/>
+  <disable_collisions link1="right_inner_knuckle" link2="right_inner_finger" reason="Default"/>
+
+
+  <!-- <group name="arm_with_gripper">
+    <group name="manipulator"/>
+    <group name="gripper"/>
+  </group> -->
+
+  <!--
+  <group name="all_joints">
+    <joint name="joint_LF01"/>
+    <joint name="joint_LB01"/>
+    <joint name="joint_RF01"/>
+    <joint name="joint_RB01"/>
+    <joint name="joint_1"/>
+    <joint name="joint_2"/>
+    <joint name="joint_3"/>
+    <joint name="joint_4"/>
+    <joint name="joint_5"/>
+    <joint name="joint_6"/>
+    <joint name="joint_7"/>
+    <joint name="finger_joint"/>
+    <joint name="left_inner_knuckle_joint"/>
+    <joint name="right_outer_knuckle_joint"/>
+    <joint name="right_inner_knuckle_joint"/>
+    <joint name="left_inner_finger_joint"/>
+    <joint name="right_inner_finger_joint"/>
+  </group>
+  -->
+
+</robot>
+
+
